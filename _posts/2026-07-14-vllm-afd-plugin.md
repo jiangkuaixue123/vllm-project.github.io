@@ -66,9 +66,6 @@ The same high-level exchange - Attention output to FFN, FFN output back to Atten
 * **MoE model integration.** The plugin registers wrappers for DeepSeek V2/V3-family architectures, including DeepSeek V3.2, and GLM MoE DSA. The wrapper exposes separate Attention and FFN computations while reusing upstream layer implementations.
 * **Graph and ubatching paths.** The synchronous GPU and NPU connectors support decode-only graph capture. Dual Batch Overlap is supported with exactly two ubatches, and CAM async provides AFD-managed MoE ubatching for its prefill path.
 
-> [!NOTE]
-> AFD does not yet imply role-pruned model loading. In our current implementation, both services still load the full model weights and split the forward execution path. Role-specific weight loading is an important next step.
-
 ## A Performance Snapshot
 
 ### Synchronous AFD Decode Throughput with `CAMP2pAFDConnector`
